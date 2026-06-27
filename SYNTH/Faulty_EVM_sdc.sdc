@@ -1,0 +1,92 @@
+# ####################################################################
+
+#  Created by Genus(TM) Synthesis Solution 20.10-p001_1 on Thu Nov 20 14:10:34 IST 2025
+
+# ####################################################################
+
+set sdc_version 2.0
+
+set_units -capacitance 1000fF
+set_units -time 1000ps
+
+# Set the current design
+current_design Faulty_EVM
+
+create_clock -name "clk" -period 5.0 -waveform {0.0 2.5} [get_ports clk]
+create_clock -name "vclk" -period 5.0 -waveform {0.0 2.5} 
+set_load -pin_load 0.0022 [get_ports A_Led]
+set_load -pin_load 0.0022 [get_ports B_Led]
+set_load -pin_load 0.0022 [get_ports C_Led]
+set_load -pin_load 0.0022 [get_ports buzzer_output]
+set_load -pin_load 0.0022 [get_ports limit_exceeded]
+set_load -pin_load 0.0022 [get_ports {A_Count[7]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[6]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[5]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[4]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[3]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[2]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[1]}]
+set_load -pin_load 0.0022 [get_ports {A_Count[0]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[7]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[6]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[5]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[4]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[3]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[2]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[1]}]
+set_load -pin_load 0.0022 [get_ports {B_Count[0]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[7]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[6]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[5]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[4]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[3]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[2]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[1]}]
+set_load -pin_load 0.0022 [get_ports {C_Count[0]}]
+set_clock_gating_check -setup 0.0 
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports reset]
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports A_Push]
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports B_Push]
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports C_Push]
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports ballot_signal]
+set_input_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports show_result]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports A_Led]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports B_Led]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports C_Led]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports buzzer_output]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports limit_exceeded]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[7]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[6]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[5]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[4]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[3]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[2]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[1]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {A_Count[0]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[7]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[6]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[5]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[4]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[3]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[2]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[1]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {B_Count[0]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[7]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[6]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[5]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[4]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[3]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[2]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[1]}]
+set_output_delay -clock [get_clocks vclk] -add_delay 1.75 [get_ports {C_Count[0]}]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports clk]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports reset]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports A_Push]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports B_Push]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports C_Push]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports ballot_signal]
+set_driving_cell -lib_cell BUFX12 -library slow_vdd1v0 -pin "Y" [get_ports show_result]
+set_wire_load_mode "enclosed"
+set_clock_uncertainty -setup 0.4 [get_ports clk]
+set_clock_uncertainty -hold 0.4 [get_ports clk]
+set_clock_latency  0.3 [get_ports clk]
