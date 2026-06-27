@@ -1,0 +1,11 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+create_rc_corner -name RC_Corners -cap_table {../../counter_design_database_45nm/captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../../counter_design_database_45nm/QRC_Tech/gpdk045.tch}
+create_library_set -name SLOW -timing {../../counter_design_database_45nm/lib/slow_vdd1v0_basicCells.lib}
+create_library_set -name FAST -timing {../../counter_design_database_45nm/lib/fast_vdd1v0_basicCells.lib}
+create_constraint_mode -name Constraint -sdc_files {../SYNTH/Faulty_EVM_sdc.sdc}
+create_delay_corner -name Slow -library_set {SLOW} -rc_corner {RC_Corners}
+create_delay_corner -name Fast -library_set {FAST} -rc_corner {RC_Corners}
+create_analysis_view -name Slow -constraint_mode {Constraint} -delay_corner {Slow}
+create_analysis_view -name Fast -constraint_mode {Constraint} -delay_corner {Fast}
+set_analysis_view -setup {Slow} -hold {Fast}
