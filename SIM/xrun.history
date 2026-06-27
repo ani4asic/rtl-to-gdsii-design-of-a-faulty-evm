@@ -1,0 +1,2 @@
+s1(15Nov2025:10:04:58):  xrun -mess -access +rwc ../RTL/Faulty_EVM.v ../TB/Faulty_EVM_TB.v -gui 
+s2(15Nov2025:10:06:32):  xrun -mess -access +rwc ../RTL/Faulty_EVM.v ../TB/Faulty_EVM_TB.v -gui 

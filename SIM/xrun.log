@@ -1,0 +1,25 @@
+xrun(64): 21.03-s001: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	21.03-s001: Started on Nov 15, 2025 at 10:06:31 IST
+xrun
+	-mess
+	-access +rwc
+	../RTL/Faulty_EVM.v
+	../TB/Faulty_EVM_TB.v
+	-gui
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /cadence_tools/XCELIUM2103/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm Faulty_EVM_TB.DuT.A_Count Faulty_EVM_TB.DuT.A_Led Faulty_EVM_TB.DuT.A_Push Faulty_EVM_TB.DuT.A_Vote Faulty_EVM_TB.DuT.B_Count Faulty_EVM_TB.DuT.B_Led Faulty_EVM_TB.DuT.B_Push Faulty_EVM_TB.DuT.B_Vote Faulty_EVM_TB.DuT.C_Count Faulty_EVM_TB.DuT.C_Led Faulty_EVM_TB.DuT.C_Push Faulty_EVM_TB.DuT.C_Vote Faulty_EVM_TB.DuT.ballot_signal Faulty_EVM_TB.DuT.buzzer_count Faulty_EVM_TB.DuT.buzzer_output Faulty_EVM_TB.DuT.clk Faulty_EVM_TB.DuT.limit_exceeded Faulty_EVM_TB.DuT.reset Faulty_EVM_TB.DuT.show_result Faulty_EVM_TB.DuT.state Faulty_EVM_TB.DuT.vote_count Faulty_EVM_TB.DuT.voted
+Created probe 1
+xcelium> run
+The Number of Times the Buzzer has BEEPED:         250
+
+Simulation complete via $finish(1) at time 62230 NS + 0
+../TB/Faulty_EVM_TB.v:112         #2400 $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	21.03-s001: Exiting on Nov 15, 2025 at 10:10:18 IST  (total: 00:03:47)
